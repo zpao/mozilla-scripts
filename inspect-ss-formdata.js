@@ -1,4 +1,5 @@
-var ss = Components.classes["@mozilla.org/browser/sessionstore;1"].getService(Components.interfaces.nsISessionStore);
+var {classes: Cc, interfaces: Ci, utils: Cu} = Components;
+var ss = Cc["@mozilla.org/browser/sessionstore;1"].getService(Ci.nsISessionStore);
 
 var data = {};
 var state = JSON.parse(ss.getBrowserState());
