@@ -10,6 +10,8 @@ state.windows.forEach(function(win) {
   win.tabs.forEach(function(tab) {
     /* only keep the current entry */
     tab.entries = [tab.entries[tab.index - 1]];
+    /* the index will be wrong as is now, so reset it */
+    tab.index = 1;
   });
 });
 ss.setBrowserState(JSON.stringify(state));
