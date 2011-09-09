@@ -1,10 +1,12 @@
 /* TODO: track # of tabs closed per window, limit to max_tabs_undo */
 
-const MATCH_URLS = [/* array of regular expressions */];
+var MATCH_URLS = [/* array of regular expressions */];
+
+var {classes: Cc, interfaces: Ci, utils: Cu} = Components;
+Cu.import("resource://gre/modules/Services.jsm");
 
 var removed = [];
-var wm = window.top.opener.Services.wm;
-var e = wm.getEnumerator("navigator:browser");
+var e = Services.wm.getEnumerator("navigator:browser");
 while (e.hasMoreElements()) {
   var win = e.getNext();
   var tabs = win.gBrowser.tabs;
